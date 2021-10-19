@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block content %}
+<p>Total price: £{{ total }}</p>
+{% for item in basket %}
+<div class = "products">
+{{products[item.product_id-1].name}}
+<p><a href="{{ url_for('product', product_id=item.product_id)}}"><img src="{{ url_for('static', filename='img/' + products[item.product_id-1].image_file) }}"></a>
+<p><a href="{{ url_for('removefrombasket', user_id=current_user.id, product_id=item.product_id)}}">Remove from basket</a></p>
+</div>
+{% endfor %}
+{% endblock content %}

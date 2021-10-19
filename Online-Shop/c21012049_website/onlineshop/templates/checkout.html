@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block content %}
+<form method="POST" action="">
+  <div class="spacing">{{ form.csrf_token }}</div>
+  <div class="spacing">{{ form.name.label }} {{ form.name }}</div>
+  <div class="spacing">{{ form.phone.label }} {{ form.phone }}</div>
+  <div id="help1" onclick="helpAlert1()">Click here for help</div>
+  <div class="spacing">{{ form.card_number.label }} {{ form.card_number }}</div>
+  <div id="help2" onclick="helpAlert2()">Click here for help</div>
+  <div class="spacing">{{ form.expiry.label }} {{ form.expiry}}</div>
+  <div id="help3" onclick="helpAlert3()">Click here for help</div>
+  <div class="spacing">{{ form.security.label }} {{ form.security }}</div>
+  <input type = "submit" value="Checkout">Total price = £{{ total }}
+</form>
+{% endblock content %}

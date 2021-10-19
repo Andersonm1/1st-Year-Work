@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="products">
+<h1>{{product.name}}</h1>
+<img src="{{ url_for('static', filename='img/' + product.image_file) }}">
+<p>{{ "{:.2f}".format(product.price) }}</p>
+{% if current_user.is_authenticated %}
+  <p><a href="{{ url_for('updatebasket', user_id=current_user.id, product_id=product.id)}}">Add to basket</a></p>
+  <p><a href="{{ url_for('updatewishlist', user_id=current_user.id, product_id=product.id)}}">Add to wishlist</a></p>
+  <p><a href="{{ url_for('leaveAReview', user_id=current_user.id, product_id=product.id)}}">Leave a review</a></p>
+{% endif %}
+<h4>{{product.description}}</h4>
+
+<h3> Reviews </h3>
+{% for review in reviews %}
+  <h5>{{users[review.user_id-1].username}}</h5>
+  <h6><pre>   {{review.comment}}</pre></h6>
+{% endfor %}
+
+</div>
+{% endblock content %}
