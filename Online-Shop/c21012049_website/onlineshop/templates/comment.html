@@ -1,8 +1,0 @@
-{% extends "layout.html" %}
-{% block content %}
-<form method="POST" action="">
-  <div class="spacing">{{ form.csrf_token }}</div>
-  <div class="spacing">{{ form.Comment.label }} {{ form.Comment }}</div>
-  <input type="submit" value="Review">
-</form>
-{% endblock content %}
